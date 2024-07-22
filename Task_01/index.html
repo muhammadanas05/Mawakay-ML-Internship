@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommendation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Recipe Recommendation System</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Get Recommendations by Recipe ID</h2>
+            <form id="recipe-form">
+                <label for="recipe-id">Recipe ID:</label>
+                <input type="number" id="recipe-id" name="recipe_id" required>
+                <label for="num-recommendations">Number of Recommendations:</label>
+                <input type="number" id="num-recommendations" name="n_recommendations" value="5">
+                <button type="submit">Get Recommendations</button>
+            </form>
+            <div id="recommendations-list"></div>
+        </section>
+        <section>
+            <h2>Get Recommendations for New Recipe</h2>
+            <form id="new-recipe-form">
+                <label for="ingredients">Ingredients (comma separated):</label>
+                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+                <label for="num-recommendations-new">Number of Recommendations:</label>
+                <input type="number" id="num-recommendations-new" name="n_recommendations" value="5">
+                <button type="submit">Get Recommendations</button>
+            </form>
+            <div id="new-recipe-recommendations-list"></div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
