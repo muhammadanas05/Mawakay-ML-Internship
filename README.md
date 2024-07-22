@@ -7,7 +7,7 @@ Welcome to the Mawakay Machine-Learning repository! This repository contains all
 In this repository, you'll find different machine learning models and applications designed to address various problems. Each project showcases different techniques and methodologies, from data preprocessing and model training to evaluation and deployment.
 
 
-4. Explore the Projects:
+ Explore the Projects:
    Each project has its own folder with relevant files. Navigate to the specific project folder to explore and run the projects.
 
 ## Contributing
