@@ -43,6 +43,7 @@ The backend was developed using Flask. The Flask application (`app.py`) handles 
 ## Testing the Model
 
 In the `task_03.ipynb` notebook, an example is provided to test the model. The example demonstrates how to use the model to classify a new image by accepting a picture and giving the classification output.
+You may use test-image.jpeg & test-image1.jpeg for testing.
 
 ## File Structure
 
