@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        input[type="file"], button {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="file"] {
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+        }
+        button {
+            background-color: #6200EA;
+            color: #FFFFFF;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3700B3;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            color: #BB86FC;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .links a:hover {
+            color: #3700B3;
+        }
+        #details {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+    <h2 id="result"></h2>
+    <button id="details-button">Show Project Details</button>
+    <div id="details">
+        <h3>Project Details</h3>
+        <p>This project is an image classification system built using a Convolutional Neural Network (CNN). It can classify various types of images, such as bikes, cars, cats, dogs, flowers, horses, and humans. The model was trained using a large dataset and can predict the class of uploaded images with high accuracy.</p>
+    </div>
+    <div class="links">
+        <p>Made by Muhammad Anas</p>
+        <a href="https://github.com/muhammadanas05" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/muhammadanas05" target="_blank">LinkedIn</a>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+            fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Predicted class: ' + data.label;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        document.getElementById('details-button').addEventListener('click', function() {
+            var details = document.getElementById('details');
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
